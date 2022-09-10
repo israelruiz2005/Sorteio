@@ -1,0 +1,225 @@
+<!-- /*
+* Template Name: Property
+* Template Author: Untree.co
+* Template URI: https://untree.co/
+* License: https://creativecommons.org/licenses/by/3.0/
+*/ -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Untree.co" />
+    <link rel="shortcut icon" href="{{=URL('static','/assets-property/images/favicon.png')}}" />
+
+    <meta name="description" content="" />
+    <meta name="keywords" content="bootstrap, bootstrap5" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="{{=URL('static','/assets-property/fonts/icomoon/style.css')}}" />
+    <link rel="stylesheet" href="{{=URL('static','/assets-property/fonts/flaticon/font/flaticon.css')}}" />
+
+    <link rel="stylesheet" href="{{=URL('static','/assets-property/css/tiny-slider.css')}}" />
+    <link rel="stylesheet" href="{{=URL('static','/assets-property/css/aos.css')}}" />
+    <link rel="stylesheet" href="{{=URL('static','/assets-property/css/style.css')}}" />
+
+    <title>
+      {{=response.title or request.application}}
+    </title>
+  </head>
+  <body>
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+          <span class="icofont-close js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <nav class="site-nav">
+      <div class="container">
+        <div class="menu-bg-wrap">
+          <div class="site-navigation">
+            <a href="{{=URL('index.html')}}" class="logo m-0 float-start">{{=response.title or request.application}}</a>
+
+            <ul
+              class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"
+            >
+              <li class="active"><a href="{{=URL('index.html')}}">Home</a></li>
+              <li><a href="{{=URL('dashboard')}}"> {{=response.title or request.application}}</a></li>
+              <li><a href="#nome">Contato</a></li>
+              <li><a href="{{=URL('user', args='login', vars={'_next': URL('dashboard')})}}">Login</a></li>
+              <li><a href="{{=URL('user', args='register', vars={'_next': URL('dashboard')})}}">Registre-se</a></li>
+            </ul>
+
+            <a
+              href="#"
+              class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none"
+              data-toggle="collapse"
+              data-target="#main-navbar"
+            >
+              <span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div class="hero-slide">
+        <div
+          class="img overlay"
+          style="background-image: url('{{=URL('static','/assets-property/images/hero_bg_3.jpg')}}')"
+        ></div>
+        <div
+          class="img overlay"
+          style="background-image: url('{{=URL('static','/assets-property/images/hero_bg_2.jpg')}}')"
+        ></div>
+        <div
+          class="img overlay"
+          style="background-image: url('{{=URL('static','/assets-property/images/hero_bg_1.jpg')}}')"
+        ></div>
+      </div>
+
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-lg-9 text-center">
+            <h1 class="heading" data-aos="fade-up">
+              Participe do amigo secreto de uma forma diferente
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div
+            class="col-lg-4 mb-5 mb-lg-0"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="contact-info">
+              <div class="address mt-2">
+                <i class="icon-room"></i>
+                <h4 class="mb-2">Localização:</h4>
+                <p>
+                  Seu endereço aqui,<br />
+                  Salvador - Bahia
+                </p>
+              </div>
+
+              <div class="email mt-4">
+                <i class="icon-envelope"></i>
+                <h4 class="mb-2">Email:</h4>
+                <p>seuemail@com.br</p>
+              </div>
+
+              <div class="phone mt-4">
+                <i class="icon-phone"></i>
+                <h4 class="mb-2">Telefone:</h4>
+                <p>+55 71 99999-9999</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+            <form action="#">
+              <div class="row">
+                <div class="col-6 mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Seu nome"
+                    id="nome"
+                    name="nome"
+                  />
+                </div>
+                <div class="col-6 mb-3">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Seu email"
+                    id="email"
+                    name="email"
+                  />
+                </div>
+                
+                <div class="col-12 mb-3">
+                  <textarea
+                    name="mensagem"
+                    id="mensagem"
+                    cols="30"
+                    rows="7"
+                    class="form-control"
+                    placeholder="Mensagem"
+                  ></textarea>
+                </div>
+
+                <div class="col-12">
+                  <input
+                    type="submit"
+                    value="Enviar mensagem"
+                    class="btn btn-primary"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.untree_co-section -->
+
+    <div class="site-footer">
+      <div class="container">
+        <div class="row mt-5">
+          <div class="col-12 text-center">
+            <!-- 
+              **==========
+              NOTE: 
+              Please don't remove this copyright link unless you buy the license here https://untree.co/license/  
+              **==========
+            -->
+            <p>
+              Copyright &copy;
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              . All Rights Reserved. &mdash; Designed with love by
+              <a href="https://untree.co">Untree.co</a>
+              <!-- License information: https://untree.co/license/ -->
+            </p>
+            <div>
+              Distributed by
+              <a href="https://themewagon.com/" target="_blank">themewagon</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.site-footer -->
+
+    <!-- Preloader -->
+    <div id="overlayer"></div>
+    <div class="loader">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
+    <script src="{{=URL('static','/assets-property/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{=URL('static','/assets-property/js/tiny-slider.js')}}"></script>
+    <script src="{{=URL('static','/assets-property/js/aos.js')}}"></script>
+    <script src="{{=URL('static','/assets-property/js/navbar.js')}}"></script>
+    <script src="{{=URL('static','/assets-property/js/counter.js')}}"></script>
+    <script src="{{=URL('static','/assets-property/js/custom.js')}}"></script>
+  </body>
+</html>

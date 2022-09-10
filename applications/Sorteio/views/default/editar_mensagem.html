@@ -1,0 +1,35 @@
+{{extend 'base.html'}}
+
+{{ block breadcrumb}}
+{{ super}}
+<li class="breadcrumb-item active">Editar mensagem</li>
+<li class="breadcrumb-item active"><a href="{{=URL('forum', args=id_grupo)}}">Fórum</a></li>
+{{ end}}
+<div class="col-lg-12">
+
+    <div class="card">
+      <div class="card-body">
+        
+        <h5 class="card-title">Editar mensagem</h5>
+        
+        <h6 class="card-subtitle mb-2">Modifique sua mensagem postada no fórum</h6>
+        <!-- Default form -->
+        {{=form.custom.begin}}
+           
+                <label>Sua mensagem</label>
+                {{form.elements('#forum_mensagem')[0]['_class']='form-control'}}
+                {{form.elements('#forum_mensagem')[0]['_rows']='3'}}
+                {{=form.custom.widget.mensagem}}
+
+                </br>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-info">Enviar</button>
+                </div>
+            
+           
+        {{=form.custom.end}}
+        <!--{{=form}}-->
+        <!-- End Default form Example -->
+        </div>
+    </div>
+  </div>

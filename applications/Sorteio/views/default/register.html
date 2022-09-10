@@ -1,0 +1,54 @@
+{{extend 'user_template.html'}}
+
+      <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+        <div class="container"  style="background-image: url('{{=URL('static','/assets-property/images/hero_bg_2.jpg')}}')">
+          <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+
+              
+              <div class="card mb-4">
+
+                <div class="card-body">
+                  <div class="pt-6 pb-4">
+                     <p class="text-center small">Cadastre-se</p>
+                  </div>
+                  {{=form.custom.begin}}
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="name">Nome</label>
+                      {{=form.custom.widget.first_name}}
+                    </div>
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="name">Sobrenome</label>
+                      {{=form.custom.widget.last_name}}
+                    </div>
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="name">Email</label>
+                      {{=form.custom.widget.email}}
+                    </div>
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="name">Senha</label>
+                      {{=form.custom.widget.password}}
+                     </div>
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="name">Repita a senha</label>
+                      {{=form.custom.widget.password_two}}
+                     </div>
+                    <button type="submit" class="btn btn-primary btn-block mb-4" value="registrar">Registrar</button>
+                    {{=form.custom.end}}
+                
+                </div>
+              </div>
+
+              <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </section>

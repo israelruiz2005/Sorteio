@@ -1,0 +1,91 @@
+{{extend 'base.html'}}
+{{ block breadcrumb}}
+{{ super}}
+<li class="breadcrumb-item active">Fórum</li>
+{{ end}}
+<div class="col-lg-12">
+              
+                {{if mensagens:}}
+                <div class="card">
+                    <div class="card-body">
+            
+                            {{for msg in mensagens:}}
+                            <div class="card">
+                                <div class="card-body">
+                                    
+                                    <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <img class="rounded-circle" src="{{=URL('download',args=msg.created_by.avatar)}}" alt="Avatar do usuário" width="50px" height="50px">
+                                            </div>
+                                            <h6>{{=msg.created_by.first_name}} disse: </h6>
+                                            <div class="flex-grow-1 ms-3">
+                                                    {{=msg.mensagem}}
+                                            </div>
+                                    </div>
+                                    {{if db(Forum.id == msg.id).select().first().created_by == auth.user.id or auth.has_membership("Administrador"): }}
+                                    <div class="flex-right"> 
+                                        <a href="{{=URL('editar_mensagem', args=msg.id)}}">
+                                            <i class="bi bi-pencil-fill pull-right"></i>
+                                        </a>
+                                        
+                                        <a href="{{=URL('apagar_mensagem', args=msg.id)}}">
+                                            <i class="bi bi-recycle pull-right"> Apagar</i>
+                                        </a>
+                                        
+                                    </div>  
+                                   {{pass}}   
+                                </div>
+                                
+                               
+                            </div>  
+                                
+                            {{pass}}
+                    </div>
+                </div>  
+                <div>
+                    <nav aria-label="navegação">
+                        <ul class="pagination pagination-sm justify-content-center">
+                            {{if int(request.vars.page) == 1:}} 
+                                <li class="page-item page-item disabled">
+                            {{else:}}
+                            <li class="page-item">
+                            {{pass}}    
+                            <a class="page-link" href="{{=URL(args=request.args,vars={'page': int(request.vars.page)-1})}}" aria-label="Anterior">
+                            <span aria-hidden="true">&laquo;</span>                            
+                            </a>
+                          </li>
+                          <li class="page-item">
+                               <a class="page-link" href="{{=URL(args=request.args,vars={'page': int(request.vars.page)+1})}}" aria-label="Próximo">
+                              <span aria-hidden="true">&raquo;</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+
+                </div>
+                    {{else:}}
+                        {{if request.vars.q:}}
+                            <div class="alert alert-danger" role="alert">
+                                Não há mensagens, localizadas na pesquisa!
+                            </div>
+                        {{else:}}
+                            <div class="alert alert-info" role="alert">
+                                Não há mensagens, seja o primeiro!
+                            </div>
+                        {{pass}}
+                    {{pass}}
+                    {{=form.custom.begin}}
+                        <div class="form-group">
+                            <textarea class="form-control" name="mensagem" rows="5"></textarea>
+                        </br>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-info">Enviar</button>
+                            </div>
+                            
+                        </div>
+                    {{=form.custom.end}}
+                    <!--{{=form}}-->
+                    
+            
+        
+</div>

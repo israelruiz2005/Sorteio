@@ -1,0 +1,50 @@
+{{extend 'base.html'}}
+
+<div class="col-lg-12">
+
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Seus grupos</h5>
+        <a href="{{=URL('novo_grupo')}}">
+        <button type="button" class="btn btn-primary">Novo grupo</button></a>
+        <!-- Default Table -->
+        {{if grupos:}}
+        
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">{{=T('Grupo')}}</th>
+              <th scope="col">{{=T('Data do Sorteio')}}</th>
+              <th scope="col">{{=T('Valor máximo')}}</th>
+              <th scope="col">{{=T('Ações')}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{ for grupo in grupos:}}
+                <tr>
+                    <td>{{=grupo.nome}}</td>
+                    <td>{{=grupo.data_revelacao}}</td>
+                    <td>{{=grupo.valor_maximo}}</td>
+                    <td>
+                      {{if dono_grupo(grupo.id) or participa_grupo(grupo.id):}}
+                        <a href="{{=URL('grupo', args=grupo.id)}}"><button type="button" class="btn btn-xs btn-primary">Ver</button></a>
+                      {{pass}}
+                        {{if dono_grupo(grupo.id):}}
+                        <a href="{{=URL('atualizar_grupo', args=grupo.id)}}"><button type="button" class="btn btn-xs btn-info">Editar</button></a>
+                        <a href="{{=URL('apagar_grupo', args=grupo.id)}}"><button type="button" class="btn btn-xs btn-danger">Excluir</button></a>
+                      {{pass}}
+                    </td>
+                </tr>
+            {{pass}}
+        </tbody>
+        </table>
+        {{else:}}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+               Você não possui nem participa de nenhum grupo, vamos começar?
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {{pass}}  
+        <!-- End Default Table Example -->
+      </div>
+    </div>
+  </div>

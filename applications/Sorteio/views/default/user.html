@@ -1,0 +1,18 @@
+{{extend 'base.html'}}
+{{ block breadcrumb}}
+{{ super}}
+<li class="breadcrumb-item active">{{=T(request.args(0).replace('_',' ').title())}}</li>
+{{ end}}
+
+<div class="page-title">
+  <span class="title">{{=T(request.args(0).replace('_',' ').title())}}</span>
+</div>
+<div class="row">
+  <div class="col-sx-12">
+    <div class="card">
+      <div class="card-body">
+        {{=form}}
+      </div>
+    </div>
+  </div>
+</div>
